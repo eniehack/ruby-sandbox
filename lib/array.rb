@@ -1,12 +1,9 @@
-# 配列の定義"
+# 配列の定義
 nums = [1, 2, 3, 4, 5]
 p nums
 
-empty = []
-=begin
-空の配列を作成
-empty = Array.new でも作成可能
-=end
+empty = [] # 空の配列を作成
+# empty = Array.new でも作成可能
 p empty
 
 array = Array.new(5, "Hello")
@@ -54,3 +51,9 @@ element = nums.pop(5)
 p nums
 p element
 
+# 多重代入
+a, b = [1, 2] # aに1,bに2は代入される
+c, d = [3] # 右辺が少ない場合にはnilが返る
+e, f = [4, 5, 6] # 右辺が多い場合ははみ出た値が捨てられる
+
+g = 14.divmod(3) # divmodメソッドは商と余りを配列に多重代入するメソッド
