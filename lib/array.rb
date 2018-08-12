@@ -92,6 +92,17 @@ odd?メソッドは数値が奇数の場合、真になる
 num2.delete_if { |n| n.odd? } としても同じ動作をする
 =end
 
-# mapメソッド
-number = [1, 2, 3, 4, 5]
-new_number = number.map { |n| n * 10 }
+# mapメソッド(エイリアスメソッドはcollect)
+numbers = [1, 2, 3, 4, 5, 6]
+p number
+new_number = numbers.map { |n| n * 10 }
+# mapメソッドは各要素に対しブロックを評価した新しい配列を作成する
+p new_number
+
+# selectメソッド(エイリアスメソッドはfind_all)
+even_numbers = numbers.select { |n| n.even? }
+# selectメソッドは各要素に対しブロックを評価し、その戻り値が真の要素を集めた配列を作成する
+p even_numbers
+
+odd_numbers = numbers.reject { |n| n.odd?}
+# rejectメソッドはselectとは逆に偽の要素を集めた要素を作成する
