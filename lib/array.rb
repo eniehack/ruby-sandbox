@@ -104,5 +104,28 @@ even_numbers = numbers.select { |n| n.even? }
 # selectメソッドは各要素に対しブロックを評価し、その戻り値が真の要素を集めた配列を作成する
 p even_numbers
 
+# rejectメソッド
 odd_numbers = numbers.reject { |n| n.odd?}
 # rejectメソッドはselectとは逆に偽の要素を集めた要素を作成する
+
+# find(エイリアスはdetect)メソッド
+even_number = numbers.find { |n| n.even? }
+# findメソッドはブロックの戻り値が真になった最初の値を返す
+
+# inject(reduce)メソッド
+sum1 = numbers.inject(0) { |result,n| result + n }
+=begin
+これは
+
+sum1 = 0
+number.each { |n| sum += n }
+
+と同義で、
+injectの引数(？)、0は"sum1 = 0"と対応している
+また、ブロック内のsumはresultと対応している
+つまり、
+一回目: result=0,n=1 0+1=1 この結果である1が2回目のresultの値になる
+2回目: result=1,n=2 1+2=3 次は3がresultの値となる
+最後のブロック評価が終わると最後の値がinjectメソッドの戻り値となる
+=end
+p sum1
